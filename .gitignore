@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.coverage
+.pytest_cache
+.tox
+htmlcov
+cpd.xml
+cpd_report.html
+prof.svg
+prof.txt
+er_diagram.png
+mydatabase
+node_modules
+generated
+.dir-locals.el
+.projectile
