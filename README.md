@@ -2,52 +2,71 @@
 Tools to write clean microservices in python without headaches. (demo project)
 
 This project is a demo project you can use as microservice project template.
+
 This project is also a bit as django ORM and connexion (flask) framework are combined together.
+
 You can find below all the things you can do with this project template.
 
 ## Project scructure
-.
-├── apps
-│   ├── boilerplace
-│   │   ├── migrations
-│   ├── db
-│   │   ├── migrations
-├── codegen_template
-├── docs
-├── locale
-├── requirements
-├── scripts
-├── settings
-└── swagger_server
-    ├── controllers
-    ├── functions
-    ├── models
-    ├── openapi
-    ├── repositories
-    ├── serializers
-    ├── stories
-    └── tests
+    .
+    ├── apps
+    │   ├── boilerplace
+    │   │   ├── migrations
+    │   ├── db
+    │   │   ├── migrations
+    ├── codegen_template
+    ├── docs
+    ├── locale
+    ├── requirements
+    ├── scripts
+    ├── settings
+    └── swagger_server
+        ├── controllers
+        ├── functions
+        ├── models
+        ├── openapi
+        ├── repositories
+        ├── serializers
+        ├── stories
+        └── tests
 
 **apps** is a directory containing our django apps
+
 **apps/boilerplace** a django app containing our custom user model
+
 **apps/db** as we are using django ORM with connexion this app contains all project related db models
+
 **codegen_template** the template we are using for code generation
+
 **docs** the place where our api first specification is
+
 **locale** the i18n po and mo files folder
+
 **requirements** our project python requirements files
+
 **scripts** this directory contains curstom scripts for convenience
+
 **swagger_server** the root directory of connexion framework
+
 **swagger_server/controllers** where connexion (flask) controller belongs
+
 **functions** Where all utils functions belongs
+
 **models** Where generated view models (api related models, not db models) belongs
+
 **openapi** Where generated version of specification belong (with various things added like operationId... etc.)
+
 **repositories** A layer between django models and our business code to help us switching from django ORM to anything else later.
+
 **serializers** This is a convenient layer to generate a view model from a django model when fields are the same in both of them.
+
 **stories** Where business transaction belongs (using dry-python/stories https://github.com/dry-python/stories)
+
 **test** Where tests and test configuration belongs
 
 All of those layers are injected inside a "container" class using dependencies python library (https://github.com/dry-python/dependencies)
-Those containers are defined inside the implemented.py directory.
+
+Those containers are defined inside the implemented.py file.
 Then, those container classes can be used inside controllers.
 
 ## What is included ?
