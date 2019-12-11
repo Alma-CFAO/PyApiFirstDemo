@@ -48,19 +48,19 @@ You can find below all the things you can do with this project template.
 
 **swagger_server/controllers** where connexion (flask) controller belongs
 
-**functions** Where all utils functions belongs
+**swagger_server/functions** Where all utils functions belongs
 
-**models** Where generated view models (api related models, not db models) belongs
+**swagger_server/models** Where generated view models (api related models, not db models) belongs
 
-**openapi** Where generated version of specification belong (with various things added like operationId... etc.)
+**swagger_server/openapi** Where generated version of specification belong (with various things added like operationId... etc.)
 
-**repositories** A layer between django models and our business code to help us switching from django ORM to anything else later.
+**swagger_server/repositories** A layer between django models and our business code to help us switching from django ORM to anything else later.
 
-**serializers** This is a convenient layer to generate a view model from a django model when fields are the same in both of them.
+**swagger_server/serializers** This is a convenient layer to generate a view model from a django model when fields are the same in both of them.
 
-**stories** Where business transaction belongs (using dry-python/stories https://github.com/dry-python/stories)
+**swagger_server/stories** Where business transaction belongs (using dry-python/stories https://github.com/dry-python/stories)
 
-**tests** Where tests and test framework fixtures configuration belongs
+**swagger_server/tests** Where tests and test framework fixtures configuration belongs
 
 All of those layers are injected inside a "container" class using dependencies python library (https://github.com/dry-python/dependencies)
 
