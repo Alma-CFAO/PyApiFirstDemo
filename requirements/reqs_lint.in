@@ -1,0 +1,10 @@
+# Python linter & code cleaner
+pydocstyle ~= 2.1
+flake8
+flake8-comprehensions
+flake8-coding
+flake8_docstrings
+flake8-debugger
+flake8-django
+filemagic
+isort

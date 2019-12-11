@@ -1,0 +1,67 @@
+# coding: utf-8
+
+import connexion
+
+from server.functions.auth import (
+    login_required
+)
+
+{{#imports}}{{import}}  # noqa: E501
+{{/imports}}
+{{#operations}}
+{{#operation}}
+
+
+@login_required()
+def {{operationId}}(user, {{#allParams}}{{^isBodyParam}}{{paramName}}{{/isBodyParam}}{{#isBodyParam}}body{{/isBodyParam}}{{^required}}=None{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}}):  # noqa: E501
+    """{{#summary}}{{.}}{{/summary}}{{^summary}}{{operationId}}{{/summary}}
+
+    {{#notes}}{{.}}{{/notes}} # noqa: E501
+
+    {{#allParams}}
+    :param {{^isBodyParam}}{{paramName}}{{/isBodyParam}}{{#isBodyParam}}body{{/isBodyParam}}: {{description}}
+        {{^isContainer}}
+            {{#isPrimitiveType}}
+    :type {{^isBodyParam}}{{paramName}}{{/isBodyParam}}{{#isBodyParam}}body{{/isBodyParam}}: {{>param_type}}
+            {{/isPrimitiveType}}
+            {{#isUuid}}
+    :type {{^isBodyParam}}{{paramName}}{{/isBodyParam}}{{#isBodyParam}}body{{/isBodyParam}}: {{>param_type}}
+            {{/isUuid}}
+            {{^isPrimitiveType}}
+                {{#isFile}}
+    :type {{^isBodyParam}}{{paramName}}{{/isBodyParam}}{{#isBodyParam}}body{{/isBodyParam}}: werkzeug.datastructures.FileStorage
+                {{/isFile}}
+                {{^isFile}}
+                    {{^isUuid}}
+    :type {{^isBodyParam}}{{paramName}}{{/isBodyParam}}{{#isBodyParam}}body{{/isBodyParam}}: dict | bytes
+                    {{/isUuid}}
+                {{/isFile}}
+            {{/isPrimitiveType}}
+        {{/isContainer}}
+        {{#isListContainer}}
+            {{#items}}
+                {{#isPrimitiveType}}
+    :type {{^isBodyParam}}{{paramName}}{{/isBodyParam}}{{#isBodyParam}}body{{/isBodyParam}}: List[{{>param_type}}]
+                {{/isPrimitiveType}}
+                {{^isPrimitiveType}}
+    :type {{^isBodyParam}}{{paramName}}{{/isBodyParam}}{{#isBodyParam}}body{{/isBodyParam}}: list | bytes
+                {{/isPrimitiveType}}
+            {{/items}}
+        {{/isListContainer}}
+        {{#isMapContainer}}
+            {{#items}}
+                {{#isPrimitiveType}}
+    :type {{^isBodyParam}}{{paramName}}{{/isBodyParam}}{{#isBodyParam}}body{{/isBodyParam}}: Dict[str, {{>param_type}}]
+                {{/isPrimitiveType}}
+                {{^isPrimitiveType}}
+    :type {{^isBodyParam}}{{paramName}}{{/isBodyParam}}{{#isBodyParam}}body{{/isBodyParam}}: dict | bytes
+                {{/isPrimitiveType}}
+            {{/items}}
+        {{/isMapContainer}}
+    {{/allParams}}
+
+    :rtype: {{#returnType}}{{.}}{{/returnType}}{{^returnType}}None{{/returnType}}
+    """
+    return 'do some magic!'
+{{/operation}}
+{{/operations}}

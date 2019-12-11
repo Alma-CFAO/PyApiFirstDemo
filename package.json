@@ -1,0 +1,31 @@
+{
+  "name": "meetup121219_python_grenoble",
+  "version": "0.1.0",
+  "author": "Alma CFAO - Charlotte Beebee & Benoit Brayer",
+  "private": true,
+  "scripts": {
+    "dev": "pew in meetup121219 python app.py",
+    "generate": "npx openapi-generator generate -i docs/swagger.yaml -t ./codegen_template -g python-flask --additional-properties=packageName='swagger_server' -o generated/",
+    "start": "npm run dev",
+    "flake8": "pew in meetup121219 flake8 . || true",
+    "isort": "pew in meetup121219 isort -y && pew in meetup121219 python scripts/fix_endl.py .",
+    "cpd": "bash -c '$PMD_BIN/run.sh cpd --minimum-tokens 100 --files ./swagger_server/ --language python --format xml > cpd.xml' && ant -v -f cpd_report_build.xml cpd",
+    "test:withprof": "py-spy record -o prof.svg -- pew in meetup121219 pytest",
+    "test": "pew in meetup121219 pytest --lf",
+    "test:all": "pew in meetup121219 pytest",
+    "test:tox": "pew in meetup121219 tox",
+    "test:vv": "pew in meetup121219 pytest -vv",
+    "test:nocov": "pew in meetup121219 pytest --no-cov",
+    "test:cdb": "pew in meetup121219 pytest --create-db",
+    "i18n:extract": "pew in meetup121219 python manage.py makemessages",
+    "i18n:build": "pew in meetup121219 python manage.py compilemessages",
+    "db:build": "pew in meetup121219 python manage.py makemigrations",
+    "db:migrate": "pew in meetup121219 python manage.py migrate",
+    "db:erdiagram": "pew in meetup121219 python manage.py graph_models --pydot -a -g -o er_diagram.png",
+    "fix:coding": "pew in meetup121219 python scripts/fix_coding.py ./swagger_server && pew in meetup121219 python scripts/fix_coding.py ./apps",
+    "fix:endl": "pew in meetup121219 python scripts/fix_endl.py ./swagger_server && pew in meetup121219 python scripts/fix_endl.py ./apps"
+  },
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "1.0.7-4.2.1"
+  }
+}

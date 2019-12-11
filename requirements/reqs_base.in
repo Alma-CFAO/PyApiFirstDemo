@@ -1,0 +1,19 @@
+# flask framework 
+# with connexion for api mock / validation
+flask
+connexion[swagger-ui]
+
+# django / ORM / permissions 
+Django
+
+django-db-prefix
+psycopg2-binary # postgresql db driver
+
+django-guardian
+
+# drt-python
+dependencies
+stories
+attrs
+pyjwt
+

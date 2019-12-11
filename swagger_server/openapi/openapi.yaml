@@ -1,0 +1,228 @@
+openapi: 3.0.0
+info:
+  contact:
+    name: https://www.almacam.com/company/join-us/
+    url: https://www.almacam.com/company/join-us/
+  description: <b>Meetup python à Grenoble</b> <br /> <b>Des outils pour écrire des
+    Microservices sereinement en Python</b> <br /> <b>12-12-2019</b> <br /> <br />
+    On recrute ! We are hiring! <br />
+  title: Des outils pour écrire des Microservices sereinement en Python
+  version: 0.0.1
+servers:
+- url: http://127.0.0.1:5000/v1
+tags:
+- description: Everything about your Pets
+  name: pet
+paths:
+  /pet:
+    get:
+      operationId: pet_get
+      parameters:
+      - description: items per page limit
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int64
+          type: integer
+        style: form
+      - description: number of items to skip
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int64
+          type: integer
+        style: form
+      - description: what related data to expand
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                properties:
+                  results:
+                    description: Pets in a list
+                    items:
+                      $ref: '#/components/schemas/Pet'
+                    type: array
+                  count:
+                    description: Number of existing pets
+                    example: 1
+                    format: int64
+                    type: integer
+            application/xml:
+              schema:
+                properties:
+                  results:
+                    description: Pets in a list
+                    items:
+                      $ref: '#/components/schemas/Pet'
+                    type: array
+                  count:
+                    description: Number of existing pets
+                    example: 1
+                    format: int64
+                    type: integer
+          description: Successful response.
+      security:
+      - jwt:
+        - secret
+      summary: List pets from the store
+      tags:
+      - pet
+      x-openapi-router-controller: swagger_server.controllers.pet_controller
+  /pet/last:
+    get:
+      operationId: pet_last_get
+      parameters:
+      - description: what related data to expand
+        explode: true
+        in: query
+        name: expand
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        200:
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Pet'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pet'
+          description: successful operation
+      security:
+      - jwt:
+        - secret
+      summary: List last pet from the store
+      tags:
+      - pet
+      x-openapi-router-controller: swagger_server.controllers.pet_controller
+components:
+  parameters:
+    limitParam:
+      description: items per page limit
+      explode: true
+      in: query
+      name: limit
+      required: false
+      schema:
+        format: int64
+        type: integer
+      style: form
+    offsetParam:
+      description: number of items to skip
+      explode: true
+      in: query
+      name: offset
+      required: false
+      schema:
+        format: int64
+        type: integer
+      style: form
+    expandParam:
+      description: what related data to expand
+      explode: true
+      in: query
+      name: expand
+      required: false
+      schema:
+        type: string
+      style: form
+  schemas:
+    Category:
+      example:
+        name: name
+        id: 6
+      properties:
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+      type: object
+      xml:
+        name: Category
+    Tag:
+      example:
+        name: name
+        id: 1
+      properties:
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+      type: object
+      xml:
+        name: Tag
+    Pet:
+      example:
+        photoUrls:
+        - photoUrls
+        - photoUrls
+        name: doggie
+        id: 0
+        category:
+          name: name
+          id: 6
+        tags:
+        - name: name
+          id: 1
+        - name: name
+          id: 1
+        status: available
+      properties:
+        id:
+          format: int64
+          type: integer
+        category:
+          $ref: '#/components/schemas/Category'
+        name:
+          example: doggie
+          type: string
+        photoUrls:
+          items:
+            type: string
+          type: array
+          xml:
+            name: photoUrl
+            wrapped: true
+        tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+          xml:
+            name: tag
+            wrapped: true
+        status:
+          description: pet status in the store
+          enum:
+          - available
+          - pending
+          - sold
+          type: string
+      required:
+      - name
+      - photoUrls
+      type: object
+      xml:
+        name: Pet
+  securitySchemes:
+    jwt:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
+      x-bearerInfoFunc: swagger_server.functions.auth.decode_jwt_token

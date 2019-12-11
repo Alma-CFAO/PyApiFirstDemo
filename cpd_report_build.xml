@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <target name="cpd">
+        <xslt in="cpd.xml"
+            out="cpd_report.html"
+            style="cpd.xslt">
+        </xslt>
+    </target>
+</project>

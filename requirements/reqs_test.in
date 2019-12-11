@@ -1,0 +1,18 @@
+# Test framework (model factory, mocker & coverage)
+flask_testing
+
+coverage
+
+factory_boy
+
+mock
+
+pytest
+pytest-django
+pytest-factoryboy
+pytest-mock
+pytest-cov
+
+py-spy
+
+tox

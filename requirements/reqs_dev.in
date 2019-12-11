@@ -1,0 +1,3 @@
+# -- ER diagram generation
+django-extensions
+pydotplus
