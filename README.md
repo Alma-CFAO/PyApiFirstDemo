@@ -2,9 +2,7 @@
 Tools to write clean microservices in python without headaches. (demo project)
 
 This project is a demo project you can use as microservice project template.
-
-This project is also a bit as django ORM and connexion (flask) framework are combined together.
-
+This project is using django ORM and connexion (flask) framework combined together.
 You can find below all the things you can do with this project template.
 
 ## Project scructure
@@ -62,7 +60,7 @@ You can find below all the things you can do with this project template.
 
 **stories** Where business transaction belongs (using dry-python/stories https://github.com/dry-python/stories)
 
-**test** Where tests and test configuration belongs
+**tests** Where tests and test framework fixtures configuration belongs
 
 All of those layers are injected inside a "container" class using dependencies python library (https://github.com/dry-python/dependencies)
 
