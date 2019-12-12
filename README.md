@@ -129,10 +129,10 @@ Find pep8 violations & other things.
 ### Reformat imports automatically
 ```npm run isort```
 
-### Add python coding utf8 everywhere missing
+### Add python coding utf8 everywhere it is missing
 ```npm run fix:coding```
 
-### Fix endl everywhere needed
+### Fix endl everywhere it is needed
 ```npm run fix:endl```
 
 ### Find duplicated code
