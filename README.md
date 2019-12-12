@@ -1,8 +1,13 @@
-# meetup121219
+# PyApiFirstDemo
+This project contains demo code of 12/12/2019 python meetup in grenoble called:
+
 Tools to write clean microservices in python without headaches. (demo project)
 
+
+You can find slides [here](https://github.com/Alma-CFAO/PyApiFirstDemo/blob/master/Meetup%20Python%20microservices%20decembre%202019.pdf).
+
 This project is a demo project you can use as microservice project template.
-This project is using django ORM and connexion (flask) framework combined together.
+It conbines django ORM and connexion (flask) framework together.
 You can find below all the things you can do with this project template.
 
 ## Project scructure
