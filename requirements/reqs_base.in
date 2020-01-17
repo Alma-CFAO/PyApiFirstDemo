@@ -4,7 +4,7 @@ flask
 connexion[swagger-ui]
 
 # django / ORM / permissions 
-Django
+Django >= 3.0.1
 
 django-db-prefix
 psycopg2-binary # postgresql db driver
