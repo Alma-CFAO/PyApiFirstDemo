@@ -16,7 +16,7 @@ dependencies==0.15
 django-db-prefix==1.0.5
 django-extensions==2.2.5
 django-guardian==2.1.0
-django==3.0.2
+django==3.0.3
 entrypoints==0.3          # via flake8
 factory-boy==2.12.0
 faker==3.0.0              # via factory-boy
