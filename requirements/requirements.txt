@@ -16,7 +16,7 @@ dependencies==0.15
 django-db-prefix==1.0.5
 django-extensions==2.2.5
 django-guardian==2.1.0
-django==3.0.2
+django==3.0.3
 entrypoints==0.3          # via flake8
 factory-boy==2.12.0
 faker==3.0.0              # via factory-boy
@@ -31,7 +31,6 @@ flake8==3.7.9
 flask-testing==0.7.1
 flask==1.1.1
 idna==2.8                 # via requests
-importlib-metadata==1.2.0  # via flake8-comprehensions, jsonschema, pluggy, pytest, tox
 inflection==0.3.1         # via connexion, pytest-factoryboy
 isort==4.3.21
 itsdangerous==1.1.0       # via flask
@@ -40,7 +39,7 @@ jsonschema==3.2.0         # via connexion, openapi-spec-validator
 markupsafe==1.1.1         # via jinja2
 mccabe==0.6.1             # via flake8
 mock==3.0.5
-more-itertools==8.0.2     # via pytest, zipp
+more-itertools==8.0.2     # via pytest
 openapi-spec-validator==0.2.8  # via connexion
 packaging==19.2           # via pytest, tox
 pluggy==0.13.1            # via pytest, tox
@@ -75,4 +74,3 @@ urllib3==1.25.7           # via requests
 virtualenv==16.7.8        # via tox
 wcwidth==0.1.7            # via pytest
 werkzeug==0.16.0          # via flask
-zipp==0.6.0               # via importlib-metadata
